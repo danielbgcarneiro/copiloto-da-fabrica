@@ -20,6 +20,7 @@ import { Card } from "@/components/ui/card";
 const LPCopiloto = () => {
   useEffect(() => {
     console.log('[LPCopiloto] Landing page mounted');
+    console.log('[LPCopiloto] All sections mounted successfully');
   }, []);
 
   return (
@@ -89,9 +90,6 @@ const LPCopiloto = () => {
               { icon: BarChart3, title: "Crescimento travado por falta de cadência.", color: "text-red-500" }
             ].map((item, index) => {
               const IconComponent = item.icon;
-              useEffect(() => {
-                console.log(`[LPCopiloto] Challenge item ${index + 1} mounted`);
-              }, []);
               
               return (
                 <Card key={index} className="bg-white/5 border-white/10 p-6 text-center hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
@@ -367,9 +365,5 @@ const LPCopiloto = () => {
     </div>
   );
 };
-
-useEffect(() => {
-  console.log('[LPCopiloto] All sections mounted successfully');
-}, []);
 
 export default LPCopiloto;
