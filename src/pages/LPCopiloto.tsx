@@ -1,14 +1,9 @@
 import React, { useEffect } from "react";
 import { 
-  Package, 
-  Users, 
-  Calendar, 
-  BarChart3, 
   ClipboardList, 
   TrendingUp, 
   Settings, 
   Key,
-  Target,
   Cog,
   Zap,
   CheckCircle,
@@ -16,6 +11,9 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import HeroSection from "@/components/landing/HeroSection";
+import ChallengeSection from "@/components/landing/ChallengeSection";
+import SolutionSection from "@/components/landing/SolutionSection";
 
 const LPCopiloto: React.FC = () => {
   console.log('[LPCopiloto] Component function called');
@@ -28,152 +26,50 @@ const LPCopiloto: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Sessão 1 - A Promessa */}
-      <section className="relative bg-gradient-industrial text-white py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center animate-fade-in">
-            <div className="mb-8 mx-auto w-24 h-24 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
-              <Target className="w-12 h-12 text-industrial-gold" />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Com a consultoria Copiloto da Fábrica, em 90 dias sua área comercial deixa de ser um centro de custo imprevisível e passa a operar como uma máquina de vendas previsível e controlada.
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-              Nosso processo combina a metodologia CLARO, o Sistema Copiloto e a automação inteligente de mensagens para transformar seu comercial em uma linha de produção de vendas.
-            </p>
-          </div>
-          
-          {/* Industrial Production Line Visual */}
-          <div className="mt-16 flex justify-center">
-            <div className="relative w-full max-w-4xl">
-              <svg viewBox="0 0 800 200" className="w-full h-auto">
-                <defs>
-                  <linearGradient id="productionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="hsl(var(--factory-orange))" />
-                    <stop offset="50%" stopColor="hsl(var(--industrial-gold))" />
-                    <stop offset="100%" stopColor="hsl(var(--machine-green))" />
-                  </linearGradient>
-                </defs>
-                
-                {/* Production Line */}
-                <line x1="50" y1="100" x2="750" y2="100" stroke="url(#productionGradient)" strokeWidth="4" strokeDasharray="10,5" />
-                
-                {/* Production Stations */}
-                <circle cx="150" cy="100" r="20" fill="hsl(var(--factory-orange))" />
-                <circle cx="400" cy="100" r="20" fill="hsl(var(--industrial-gold))" />
-                <circle cx="650" cy="100" r="20" fill="hsl(var(--machine-green))" />
-                
-                {/* Labels */}
-                <text x="150" y="140" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">Clareza</text>
-                <text x="400" y="140" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">Execução</text>
-                <text x="650" y="140" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">Automação</text>
-                
-                {/* Growth Arrow */}
-                <path d="M 680 80 L 750 50 L 750 110 Z" fill="hsl(var(--machine-green))" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Sessão 2 - O Desafio */}
-      <section className="py-20 px-4 bg-steel-gray-dark text-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-factory-orange">
-              Hoje, sua empresa pode estar perdendo vendas todos os dias sem perceber.
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: Package, title: "Backlog parado e clientes esquecidos.", color: "text-red-400" },
-              { icon: Users, title: "Time e gestão desalinhados.", color: "text-orange-400" },
-              { icon: Calendar, title: "Zero previsibilidade de metas.", color: "text-yellow-400" },
-              { icon: BarChart3, title: "Crescimento travado por falta de cadência.", color: "text-red-500" }
-            ].map((item, index) => {
-              const IconComponent = item.icon;
-              
-              return (
-                <Card key={index} className="bg-white/5 border-white/10 p-6 text-center hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-                  <IconComponent className={`w-16 h-16 mx-auto mb-4 ${item.color}`} />
-                  <p className="text-lg font-medium text-gray-200">{item.title}</p>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <ChallengeSection />
 
       {/* Sessão 3 - A Solução */}
-      <section className="py-20 px-4 bg-gradient-factory">
-        <div className="container mx-auto max-w-6xl text-center text-white">
-          <div className="animate-fade-in">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Clareza, execução e automação: o tripé que transforma seu comercial em 90 dias.
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-200 mb-16 max-w-4xl mx-auto">
-              A consultoria Copiloto da Fábrica une método, disciplina e tecnologia para industrializar a área de vendas da sua empresa.
-            </p>
-          </div>
-          
-          {/* Tripé Visual */}
-          <div className="relative max-w-2xl mx-auto">
-            <svg viewBox="0 0 400 300" className="w-full h-auto">
-              <defs>
-                <pattern id="blueprint" patternUnits="userSpaceOnUse" width="20" height="20">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="hsl(var(--industrial-gold))" strokeWidth="0.5" opacity="0.3"/>
-                </pattern>
-              </defs>
-              
-              {/* Blueprint background */}
-              <rect width="400" height="300" fill="url(#blueprint)" />
-              
-              {/* Tripé structure */}
-              <polygon points="200,50 120,250 280,250" fill="none" stroke="hsl(var(--industrial-gold))" strokeWidth="3" strokeDasharray="5,5" />
-              
-              {/* Pillars */}
-              <circle cx="200" cy="50" r="15" fill="hsl(var(--industrial-gold))" />
-              <circle cx="120" cy="250" r="15" fill="hsl(var(--industrial-gold))" />
-              <circle cx="280" cy="250" r="15" fill="hsl(var(--industrial-gold))" />
-              
-              {/* Labels */}
-              <text x="200" y="30" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">CLAREZA</text>
-              <text x="120" y="280" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">EXECUÇÃO</text>
-              <text x="280" y="280" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">AUTOMAÇÃO</text>
-            </svg>
-          </div>
-        </div>
-      </section>
+      <SolutionSection />
 
       {/* Sessão 4 - Roadmap da Implantação */}
-      <section className="py-20 px-4 bg-background">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-steel-gray-dark">
-              Roadmap da Implantação
+      <section className="py-24 px-6 bg-gradient-to-br from-slate-800 via-slate-900 to-blue-950 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_70%)]"></div>
+        
+        <div className="relative container mx-auto max-w-7xl">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-blue-500/20 rounded-full mb-8 border-2 border-blue-500/30">
+              <ClipboardList className="w-12 h-12 text-blue-400" />
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent">
+                Roadmap da Implantação
+              </span>
             </h2>
-            <div className="w-24 h-1 bg-industrial-gold mx-auto"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-emerald-400 mx-auto rounded-full"></div>
           </div>
           
-          <div className="space-y-12">
+          <div className="space-y-16">
             {/* Fase 1 */}
             <div className="relative">
-              <Card className="bg-blue-50 border-l-4 border-l-industrial-blue p-8 shadow-lg">
-                <div className="flex items-start gap-6">
-                  <div className="bg-industrial-blue text-white p-4 rounded-full flex-shrink-0">
-                    <ClipboardList className="w-8 h-8" />
+              <Card className="bg-gradient-to-br from-blue-900/50 to-blue-800/50 border-2 border-blue-500/30 p-10 shadow-2xl backdrop-blur-sm">
+                <div className="flex items-start gap-8">
+                  <div className="bg-gradient-to-br from-blue-400 to-blue-600 text-white p-6 rounded-2xl flex-shrink-0 shadow-lg">
+                    <ClipboardList className="w-12 h-12" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-industrial-blue mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-3xl md:text-4xl font-black text-blue-400 mb-6">
                       Fase 1 — Diagnóstico Estruturado (Semana 1)
                     </h3>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      Em 7 dias, você terá clareza absoluta dos gargalos e potenciais do seu time comercial. Aplicamos a metodologia CLARO: <strong>Compreensão</strong> → escutamos gestão e time (como se veem, como veem o mercado). <strong>Levantamento</strong> → fatos que revelam gargalos e potenciais. <strong>Alinhamento</strong> → gestão e comercial na mesma página. <strong>Rotina inicial</strong> → micro-hábitos implantados. <strong>Objetivo</strong> → 2–3 prioridades críticas de curto prazo.
+                    <p className="text-lg md:text-xl text-slate-200 leading-relaxed mb-6">
+                      Em 7 dias, você terá clareza absoluta dos gargalos e potenciais do seu time comercial. Aplicamos a metodologia CLARO: <strong className="text-blue-300">Compreensão</strong> → escutamos gestão e time (como se veem, como veem o mercado). <strong className="text-blue-300">Levantamento</strong> → fatos que revelam gargalos e potenciais. <strong className="text-blue-300">Alinhamento</strong> → gestão e comercial na mesma página. <strong className="text-blue-300">Rotina inicial</strong> → micro-hábitos implantados. <strong className="text-blue-300">Objetivo</strong> → 2–3 prioridades críticas de curto prazo.
                     </p>
-                    <div className="mt-4 p-4 bg-industrial-blue/10 rounded-lg">
-                      <p className="font-semibold text-industrial-blue">📌 Entrega: Relatório CLARO + plano inicial de ataque.</p>
+                    <div className="bg-blue-500/20 backdrop-blur-sm rounded-xl p-6 border border-blue-400/30">
+                      <p className="font-bold text-blue-300 text-lg">📌 Entrega: Relatório CLARO + plano inicial de ataque.</p>
                     </div>
                   </div>
                 </div>
@@ -182,20 +78,20 @@ const LPCopiloto: React.FC = () => {
 
             {/* Fase 2 */}
             <div className="relative">
-              <Card className="bg-green-50 border-l-4 border-l-machine-green p-8 shadow-lg">
-                <div className="flex items-start gap-6">
-                  <div className="bg-machine-green text-white p-4 rounded-full flex-shrink-0">
-                    <TrendingUp className="w-8 h-8" />
+              <Card className="bg-gradient-to-br from-emerald-900/50 to-emerald-800/50 border-2 border-emerald-500/30 p-10 shadow-2xl backdrop-blur-sm">
+                <div className="flex items-start gap-8">
+                  <div className="bg-gradient-to-br from-emerald-400 to-emerald-600 text-white p-6 rounded-2xl flex-shrink-0 shadow-lg">
+                    <TrendingUp className="w-12 h-12" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-machine-green mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-3xl md:text-4xl font-black text-emerald-400 mb-6">
                       Fase 2 — Execução Guiada (Semanas 2–6)
                     </h3>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      Transformamos clareza em disciplina prática que gera caixa imediato. <strong>Reps no ritmo:</strong> metas semanais, pedidos mínimos, follow-ups sem falha. <strong>Backlog reativado</strong> em até 7 dias. <strong>Gestão leve e ágil</strong> (reuniões de 10 min). <strong>Talentos explorados no limite</strong> (quem caça, quem cultiva).
+                    <p className="text-lg md:text-xl text-slate-200 leading-relaxed mb-6">
+                      Transformamos clareza em disciplina prática que gera caixa imediato. <strong className="text-emerald-300">Reps no ritmo:</strong> metas semanais, pedidos mínimos, follow-ups sem falha. <strong className="text-emerald-300">Backlog reativado</strong> em até 7 dias. <strong className="text-emerald-300">Gestão leve e ágil</strong> (reuniões de 10 min). <strong className="text-emerald-300">Talentos explorados no limite</strong> (quem caça, quem cultiva).
                     </p>
-                    <div className="mt-4 p-4 bg-machine-green/10 rounded-lg">
-                      <p className="font-semibold text-machine-green">📌 Entrega: Funil vivo + cadência funcionando + reps entregando previsibilidade.</p>
+                    <div className="bg-emerald-500/20 backdrop-blur-sm rounded-xl p-6 border border-emerald-400/30">
+                      <p className="font-bold text-emerald-300 text-lg">📌 Entrega: Funil vivo + cadência funcionando + reps entregando previsibilidade.</p>
                     </div>
                   </div>
                 </div>
@@ -204,23 +100,23 @@ const LPCopiloto: React.FC = () => {
 
             {/* Fase 3 */}
             <div className="relative">
-              <Card className="bg-purple-50 border-l-4 border-l-purple-600 p-8 shadow-lg">
-                <div className="flex items-start gap-6">
-                  <div className="bg-purple-600 text-white p-4 rounded-full flex-shrink-0">
-                    <Settings className="w-8 h-8" />
+              <Card className="bg-gradient-to-br from-purple-900/50 to-purple-800/50 border-2 border-purple-500/30 p-10 shadow-2xl backdrop-blur-sm">
+                <div className="flex items-start gap-8">
+                  <div className="bg-gradient-to-br from-purple-400 to-purple-600 text-white p-6 rounded-2xl flex-shrink-0 shadow-lg">
+                    <Settings className="w-12 h-12" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-purple-600 mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-3xl md:text-4xl font-black text-purple-400 mb-6">
                       Fase 3 — Consolidação & Escala (Semanas 7–12)
                     </h3>
-                    <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                      Sua operação comercial rodando como uma linha de produção. <strong>Implantação do Sistema Copiloto:</strong> metas, indicadores e tarefas centralizados, com 12 meses de acesso incluído. <strong>Automação de mensagens (WhatsApp + Email):</strong> Disparadores com templates prontos. Fluxos segmentados por perfil/status do cliente. Foco no LTV (lifetime value).
+                    <p className="text-lg md:text-xl text-slate-200 leading-relaxed mb-4">
+                      Sua operação comercial rodando como uma linha de produção. <strong className="text-purple-300">Implantação do Sistema Copiloto:</strong> metas, indicadores e tarefas centralizados, com 12 meses de acesso incluído. <strong className="text-purple-300">Automação de mensagens (WhatsApp + Email):</strong> Disparadores com templates prontos. Fluxos segmentados por perfil/status do cliente. Foco no LTV (lifetime value).
                     </p>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      <strong>Otimização contínua:</strong> revisamos processos atacados, corrigimos e escalamos. <strong>Documentação viva:</strong> manual atualizado da operação comercial. <strong>Marketing de sustentação:</strong> LinkedIn + WhatsApp com hooks e conteúdo que gera demanda.
+                    <p className="text-lg md:text-xl text-slate-200 leading-relaxed mb-6">
+                      <strong className="text-purple-300">Otimização contínua:</strong> revisamos processos atacados, corrigimos e escalamos. <strong className="text-purple-300">Documentação viva:</strong> manual atualizado da operação comercial. <strong className="text-purple-300">Marketing de sustentação:</strong> LinkedIn + WhatsApp com hooks e conteúdo que gera demanda.
                     </p>
-                    <div className="mt-4 p-4 bg-purple-600/10 rounded-lg">
-                      <p className="font-semibold text-purple-600">📌 Entrega: Comercial com rotina inquebrável + Copiloto ativo por 12 meses.</p>
+                    <div className="bg-purple-500/20 backdrop-blur-sm rounded-xl p-6 border border-purple-400/30">
+                      <p className="font-bold text-purple-300 text-lg">📌 Entrega: Comercial com rotina inquebrável + Copiloto ativo por 12 meses.</p>
                     </div>
                   </div>
                 </div>
@@ -229,21 +125,23 @@ const LPCopiloto: React.FC = () => {
           </div>
           
           {/* Timeline Visual */}
-          <div className="mt-16 flex justify-center">
-            <div className="flex items-center space-x-8">
-              <div className="text-center">
-                <div className="w-4 h-4 bg-industrial-blue rounded-full mb-2"></div>
-                <span className="text-sm font-medium text-gray-600">Semana 1</span>
-              </div>
-              <div className="w-20 h-1 bg-gradient-to-r from-industrial-blue to-machine-green"></div>
-              <div className="text-center">
-                <div className="w-4 h-4 bg-machine-green rounded-full mb-2"></div>
-                <span className="text-sm font-medium text-gray-600">Semanas 2-6</span>
-              </div>
-              <div className="w-20 h-1 bg-gradient-to-r from-machine-green to-purple-600"></div>
-              <div className="text-center">
-                <div className="w-4 h-4 bg-purple-600 rounded-full mb-2"></div>
-                <span className="text-sm font-medium text-gray-600">Semanas 7-12</span>
+          <div className="mt-20 flex justify-center">
+            <div className="relative">
+              <div className="flex items-center space-x-12">
+                <div className="text-center">
+                  <div className="w-6 h-6 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full mb-3 shadow-lg border-2 border-blue-300/50"></div>
+                  <span className="text-sm font-bold text-blue-400">Semana 1</span>
+                </div>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-emerald-400 rounded-full"></div>
+                <div className="text-center">
+                  <div className="w-6 h-6 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full mb-3 shadow-lg border-2 border-emerald-300/50"></div>
+                  <span className="text-sm font-bold text-emerald-400">Semanas 2-6</span>
+                </div>
+                <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-purple-400 rounded-full"></div>
+                <div className="text-center">
+                  <div className="w-6 h-6 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full mb-3 shadow-lg border-2 border-purple-300/50"></div>
+                  <span className="text-sm font-bold text-purple-400">Semanas 7-12</span>
+                </div>
               </div>
             </div>
           </div>
@@ -251,59 +149,97 @@ const LPCopiloto: React.FC = () => {
       </section>
 
       {/* Sessão 5 - O Resultado Esperado */}
-      <section className="py-20 px-4 bg-steel-gray text-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8">
-              De apagão comercial para previsibilidade de vendas em 90 dias.
+      <section className="py-24 px-6 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(239,68,68,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(16,185,129,0.1),transparent_50%)]"></div>
+        
+        <div className="relative container mx-auto max-w-7xl">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 leading-tight">
+              <span className="text-white">De </span>
+              <span className="bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">apagão comercial</span>
+              <span className="text-white"> para </span>
+              <span className="bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">previsibilidade de vendas</span>
+              <br />
+              <span className="text-white">em 90 dias.</span>
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-16">
             {/* Antes */}
-            <Card className="bg-red-900/20 border-red-500 p-8">
-              <div className="text-center mb-6">
-                <XCircle className="w-16 h-16 text-red-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-red-400">Antes</h3>
+            <Card className="bg-gradient-to-br from-red-950/50 to-red-900/50 border-2 border-red-500/30 p-10 backdrop-blur-sm">
+              <div className="text-center mb-8">
+                <XCircle className="w-20 h-20 text-red-400 mx-auto mb-6" />
+                <h3 className="text-3xl font-black text-red-400 mb-6">ANTES</h3>
               </div>
-              <div className="space-y-4 text-gray-200">
-                <p>❌ Backlog parado</p>
-                <p>❌ Metas confusas</p>
-                <p>❌ Gestão sem clareza</p>
-                <p>❌ Vendas imprevisíveis</p>
-                <p>❌ Time desalinhado</p>
+              <div className="space-y-6 text-slate-200 text-lg">
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">❌</span>
+                  <span className="font-semibold">Backlog parado</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">❌</span>
+                  <span className="font-semibold">Metas confusas</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">❌</span>
+                  <span className="font-semibold">Gestão sem clareza</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">❌</span>
+                  <span className="font-semibold">Vendas imprevisíveis</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">❌</span>
+                  <span className="font-semibold">Time desalinhado</span>
+                </div>
               </div>
               
               {/* Gráfico Caótico */}
-              <div className="mt-8">
-                <svg viewBox="0 0 300 150" className="w-full h-auto">
-                  <path d="M 20 120 Q 50 80 80 100 Q 110 60 140 90 Q 170 130 200 70 Q 230 110 260 95" 
-                        fill="none" stroke="#ef4444" strokeWidth="3" opacity="0.7" />
-                  <text x="150" y="140" textAnchor="middle" fill="#ef4444" fontSize="12">Vendas Caóticas</text>
+              <div className="mt-10 bg-red-950/30 rounded-xl p-6 border border-red-500/20">
+                <svg viewBox="0 0 300 120" className="w-full h-auto">
+                  <path d="M 20 100 Q 50 60 80 80 Q 110 40 140 70 Q 170 110 200 50 Q 230 90 260 75" 
+                        fill="none" stroke="#ef4444" strokeWidth="3" opacity="0.8" />
+                  <text x="150" y="110" textAnchor="middle" fill="#ef4444" fontSize="14" fontWeight="bold">Vendas Caóticas</text>
                 </svg>
               </div>
             </Card>
             
             {/* Depois */}
-            <Card className="bg-machine-green/20 border-machine-green p-8">
-              <div className="text-center mb-6">
-                <CheckCircle className="w-16 h-16 text-machine-green mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-machine-green">Depois</h3>
+            <Card className="bg-gradient-to-br from-emerald-950/50 to-emerald-900/50 border-2 border-emerald-500/30 p-10 backdrop-blur-sm">
+              <div className="text-center mb-8">
+                <CheckCircle className="w-20 h-20 text-emerald-400 mx-auto mb-6" />
+                <h3 className="text-3xl font-black text-emerald-400 mb-6">DEPOIS</h3>
               </div>
-              <div className="space-y-4 text-gray-200">
-                <p>✅ Funil vivo</p>
-                <p>✅ Reps no ritmo</p>
-                <p>✅ Gestão com controle</p>
-                <p>✅ Vendas previsíveis</p>
-                <p>✅ Time sincronizado</p>
+              <div className="space-y-6 text-slate-200 text-lg">
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">✅</span>
+                  <span className="font-semibold">Funil vivo</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">✅</span>
+                  <span className="font-semibold">Reps no ritmo</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">✅</span>
+                  <span className="font-semibold">Gestão com controle</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">✅</span>
+                  <span className="font-semibold">Vendas previsíveis</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">✅</span>
+                  <span className="font-semibold">Time sincronizado</span>
+                </div>
               </div>
               
               {/* Gráfico Crescente */}
-              <div className="mt-8">
-                <svg viewBox="0 0 300 150" className="w-full h-auto">
-                  <path d="M 20 120 L 60 100 L 100 85 L 140 70 L 180 55 L 220 40 L 260 25" 
-                        fill="none" stroke="hsl(var(--machine-green))" strokeWidth="3" />
-                  <text x="150" y="140" textAnchor="middle" fill="hsl(var(--machine-green))" fontSize="12">Vendas Previsíveis</text>
+              <div className="mt-10 bg-emerald-950/30 rounded-xl p-6 border border-emerald-500/20">
+                <svg viewBox="0 0 300 120" className="w-full h-auto">
+                  <path d="M 20 100 L 60 85 L 100 70 L 140 55 L 180 40 L 220 25 L 260 15" 
+                        fill="none" stroke="#10b981" strokeWidth="3" />
+                  <text x="150" y="110" textAnchor="middle" fill="#10b981" fontSize="14" fontWeight="bold">Vendas Previsíveis</text>
                 </svg>
               </div>
             </Card>
@@ -312,36 +248,52 @@ const LPCopiloto: React.FC = () => {
       </section>
 
       {/* Sessão 6 - Proposta de Valor */}
-      <section className="py-20 px-4 bg-gradient-premium">
-        <div className="container mx-auto max-w-4xl text-center">
-          <Card className="bg-white/95 backdrop-blur-sm border-2 border-industrial-gold shadow-premium p-12">
-            <div className="mb-8">
-              <div className="w-20 h-20 bg-industrial-gold text-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <Cog className="w-10 h-10" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-steel-gray-dark mb-6">
-                A consultoria Copiloto da Fábrica é o pacote completo para clareza, execução e automação.
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                Você recebe: A metodologia CLARO para clareza e foco. O Sistema Copiloto ativo por 12 meses. A automação de mensagens (WhatsApp + Email) implantada durante o processo.
-              </p>
-            </div>
+      <section className="py-24 px-6 bg-gradient-to-br from-amber-950 via-slate-900 to-blue-950 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,191,36,0.1),transparent_70%)]"></div>
+        
+        <div className="relative container mx-auto max-w-5xl text-center">
+          <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-lg border-2 border-amber-400/30 shadow-2xl p-16 relative overflow-hidden">
+            {/* Premium Background Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-blue-500/5"></div>
             
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-industrial-blue/5 rounded-lg">
-                <ClipboardList className="w-12 h-12 text-industrial-blue mx-auto mb-4" />
-                <h3 className="font-bold text-industrial-blue mb-2">Metodologia CLARO</h3>
-                <p className="text-sm text-gray-600">Clareza e foco total</p>
+            <div className="relative">
+              <div className="mb-12">
+                <div className="w-28 h-28 bg-gradient-to-br from-amber-400 to-amber-600 text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl border-4 border-amber-300/30">
+                  <Cog className="w-14 h-14" />
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 leading-tight">
+                  <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 bg-clip-text text-transparent">
+                    A consultoria Copiloto da Fábrica
+                  </span>
+                  <br />
+                  <span className="text-white">
+                    é o pacote completo para clareza, execução e automação.
+                  </span>
+                </h2>
+                <p className="text-xl md:text-2xl text-slate-300 mb-12 font-medium leading-relaxed">
+                  Você recebe: A <span className="text-amber-400 font-bold">metodologia CLARO</span> para clareza e foco. 
+                  O <span className="text-blue-400 font-bold">Sistema Copiloto</span> ativo por 12 meses. 
+                  A <span className="text-emerald-400 font-bold">automação de mensagens</span> (WhatsApp + Email) 
+                  implantada durante o processo.
+                </p>
               </div>
-              <div className="text-center p-6 bg-machine-green/5 rounded-lg">
-                <Zap className="w-12 h-12 text-machine-green mx-auto mb-4" />
-                <h3 className="font-bold text-machine-green mb-2">Sistema Copiloto</h3>
-                <p className="text-sm text-gray-600">12 meses incluído</p>
-              </div>
-              <div className="text-center p-6 bg-factory-orange/5 rounded-lg">
-                <Settings className="w-12 h-12 text-factory-orange mx-auto mb-4" />
-                <h3 className="font-bold text-factory-orange mb-2">Automação</h3>
-                <p className="text-sm text-gray-600">WhatsApp + Email</p>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center p-8 bg-amber-500/10 rounded-2xl border border-amber-400/20 backdrop-blur-sm group hover:scale-105 transition-transform duration-300">
+                  <ClipboardList className="w-16 h-16 text-amber-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-xl font-black text-amber-400 mb-3">Metodologia CLARO</h3>
+                  <p className="text-slate-300 font-medium">Clareza e foco total</p>
+                </div>
+                <div className="text-center p-8 bg-blue-500/10 rounded-2xl border border-blue-400/20 backdrop-blur-sm group hover:scale-105 transition-transform duration-300">
+                  <Zap className="w-16 h-16 text-blue-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-xl font-black text-blue-400 mb-3">Sistema Copiloto</h3>
+                  <p className="text-slate-300 font-medium">12 meses incluído</p>
+                </div>
+                <div className="text-center p-8 bg-emerald-500/10 rounded-2xl border border-emerald-400/20 backdrop-blur-sm group hover:scale-105 transition-transform duration-300">
+                  <Settings className="w-16 h-16 text-emerald-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-xl font-black text-emerald-400 mb-3">Automação</h3>
+                  <p className="text-slate-300 font-medium">WhatsApp + Email</p>
+                </div>
               </div>
             </div>
           </Card>
@@ -349,19 +301,31 @@ const LPCopiloto: React.FC = () => {
       </section>
 
       {/* Sessão 7 - Fechamento */}
-      <section className="py-20 px-4 bg-industrial-blue-dark text-white">
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="mb-8">
-            <Key className="w-24 h-24 text-industrial-gold mx-auto mb-8" />
-            <h2 className="text-3xl md:text-5xl font-bold mb-8">
-              O próximo passo é simples: começamos com clareza e terminamos com previsibilidade.
+      <section className="py-24 px-6 bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_70%)]"></div>
+        
+        <div className="relative container mx-auto max-w-5xl text-center">
+          <div className="mb-12">
+            <Key className="w-32 h-32 text-amber-400 mx-auto mb-12" />
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-12 leading-tight">
+              <span className="text-white">O próximo passo é simples:</span>
+              <br />
+              <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+                começamos com clareza
+              </span>
+              <br />
+              <span className="text-white">e terminamos com</span>
+              <br />
+              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">
+                previsibilidade.
+              </span>
             </h2>
-            <div className="flex justify-center items-center space-x-4 text-xl">
-              <span className="text-industrial-gold font-semibold">CLARO</span>
-              <ArrowRight className="w-6 h-6 text-industrial-gold" />
-              <span className="text-white font-semibold">COPILOTO</span>
-              <ArrowRight className="w-6 h-6 text-industrial-gold" />
-              <span className="text-machine-green font-semibold">RESULTADOS</span>
+            <div className="flex justify-center items-center space-x-6 text-2xl md:text-3xl">
+              <span className="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent font-black">CLARO</span>
+              <ArrowRight className="w-8 h-8 text-amber-400" />
+              <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent font-black">COPILOTO</span>
+              <ArrowRight className="w-8 h-8 text-blue-400" />
+              <span className="bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent font-black">RESULTADOS</span>
             </div>
           </div>
         </div>
