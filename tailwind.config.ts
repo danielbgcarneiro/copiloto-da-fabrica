@@ -19,6 +19,23 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        // Industrial Design System
+        "steel-gray": {
+          DEFAULT: "hsl(var(--steel-gray))",
+          dark: "hsl(var(--steel-gray-dark))",
+          light: "hsl(var(--steel-gray-light))",
+        },
+        "industrial-blue": {
+          DEFAULT: "hsl(var(--industrial-blue))",
+          dark: "hsl(var(--industrial-blue-dark))",
+        },
+        "industrial-gold": {
+          DEFAULT: "hsl(var(--industrial-gold))",
+          dark: "hsl(var(--industrial-gold-dark))",
+        },
+        "factory-orange": "hsl(var(--factory-orange))",
+        "machine-green": "hsl(var(--machine-green))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -80,10 +97,42 @@ export default {
             height: "0",
           },
         },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "slide-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(30px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.6s ease-out",
+        "slide-up": "slide-up 0.5s ease-out",
+      },
+      backgroundImage: {
+        "gradient-industrial": "var(--gradient-industrial)",
+        "gradient-factory": "var(--gradient-factory)",
+        "gradient-premium": "var(--gradient-premium)",
+      },
+      boxShadow: {
+        industrial: "var(--shadow-industrial)",
+        premium: "var(--shadow-premium)",
+        gold: "var(--shadow-gold)",
       },
     },
   },

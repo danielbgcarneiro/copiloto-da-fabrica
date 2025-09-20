@@ -11,6 +11,27 @@ All colors MUST be HSL.
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
+    /* Industrial Design System */
+    --steel-gray: 220 9% 46%;
+    --steel-gray-dark: 220 9% 26%;
+    --steel-gray-light: 220 9% 66%;
+    --industrial-blue: 220 76% 17%;
+    --industrial-blue-dark: 220 76% 12%;
+    --industrial-gold: 45 100% 51%;
+    --industrial-gold-dark: 45 100% 41%;
+    --factory-orange: 24 95% 53%;
+    --machine-green: 120 61% 34%;
+    
+    /* Industrial Gradients */
+    --gradient-industrial: linear-gradient(135deg, hsl(var(--steel-gray-dark)), hsl(var(--industrial-blue)));
+    --gradient-factory: linear-gradient(135deg, hsl(var(--industrial-blue-dark)), hsl(var(--industrial-blue)));
+    --gradient-premium: linear-gradient(135deg, hsl(var(--steel-gray)), hsl(var(--industrial-gold) / 0.2));
+    
+    /* Industrial Shadows */
+    --shadow-industrial: 0 10px 30px -10px hsl(var(--steel-gray) / 0.3);
+    --shadow-premium: 0 20px 40px -10px hsl(var(--industrial-blue) / 0.2);
+    --shadow-gold: 0 8px 20px -5px hsl(var(--industrial-gold) / 0.3);
+
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
