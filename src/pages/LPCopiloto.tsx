@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { 
   Package, 
   Users, 
@@ -17,7 +17,11 @@ import {
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
-const LPCopiloto = () => {
+const LPCopiloto: React.FC = () => {
+  console.log('[LPCopiloto] Component function called');
+  console.log('[LPCopiloto] React available:', typeof React);
+  console.log('[LPCopiloto] useEffect available:', typeof useEffect);
+  
   useEffect(() => {
     console.log('[LPCopiloto] Landing page mounted');
     console.log('[LPCopiloto] All sections mounted successfully');
